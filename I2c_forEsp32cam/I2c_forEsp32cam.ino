@@ -52,9 +52,9 @@ bool transmeet(){
   if (Wire.write("hello \n") == 0) {
       return false; 
   }
-  int date = 128;
-  Wire.write(lowByte(date));   // 發送x_position的低位元組
-  Wire.write(highByte(date));  // 發送x_position的高位元組
+  int data_1 = 128;
+  Wire.write(lowByte(data_1));
+  Wire.write(highByte(data_1));
 
   Wire.endTransmission();       
 
@@ -63,9 +63,9 @@ bool transmeet(){
     char c = Wire.read();    
     Serial.print(c); 
   }
-  int data =  (Wire.read() << 8) | Wire.read();
+  int data_2 =  (Wire.read() << 8) | Wire.read();
   Serial.print(" data: ");
-  Serial.println(data);
+  Serial.println(data_2);
 
   return true;
 }
